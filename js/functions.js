@@ -1,16 +1,26 @@
 const isPalindrome = (string) => {
   const tempString = string.toLowerCase();
 
+<<<<<<< HEAD
   return tempString === [...tempString].reverse().join('');
+=======
+ return tempString === [...tempString].reverse().join('');
+>>>>>>> 71899b8bde292f374f6be789d7c336271063de1b
 };
 
 isPalindrome('ДовОд');
 
 const extractNumber = (string) => {
 
+<<<<<<< HEAD
   if (!string) {
     return string;
   }
+=======
+if (!string) {
+  return string;
+}
+>>>>>>> 71899b8bde292f374f6be789d7c336271063de1b
   return parseInt(string.replace(/\D+/g,''), 10);
 
 };
