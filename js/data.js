@@ -1,4 +1,4 @@
-import {getRandomInteger, getRandomArrayElement} from './util.js';
+import { getRandomInteger, getRandomArrayElement } from './util.js';
 
 const PICTURE_COUNT = 25;
 const LIKE_MIN_COUNT = 15;
@@ -40,7 +40,7 @@ const createComment = (index) => ({
 });
 
 const addComments = () => {
-  let comments = [];
+  const comments = [];
 
   for (let i = 0; i < getRandomInteger(0, COMMENTS_COUNT); i++) {
     comments.push(createComment(i));
@@ -57,7 +57,7 @@ const createPicture = (index) => ({
   comments: addComments()
 });
 
-let photos = [];
+const photos = [];
 
 const addPhotos = () => {
   for (let i = 0; i < PICTURE_COUNT; i++) {
@@ -67,4 +67,4 @@ const addPhotos = () => {
 
 addPhotos();
 
-export {photos};
+export { photos };
