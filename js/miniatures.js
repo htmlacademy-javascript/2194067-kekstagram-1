@@ -7,14 +7,18 @@ const pictureUserTemplate = document.querySelector('#picture').content.querySele
 
 const pictureElement = photos;
 
-pictureElement.forEach(({ likes, comments, url }) => {
+pictureElement.forEach(({ likes, comments, url, id, }) => {
   const pictureUser = pictureUserTemplate.cloneNode(true);
+
   pictureUser.querySelector('.picture__likes').textContent = likes;
   pictureUser.querySelector('.picture__comments').textContent = comments.length;
   pictureUser.querySelector('.picture__img').src = url;
+  pictureUser.dataset.thumbnailId = id;
   fragment.appendChild(pictureUser);
 });
 
 container.appendChild(fragment);
 
-export { pictureElement };
+
+
+export { pictureElement, container };
