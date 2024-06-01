@@ -12,15 +12,15 @@ const socialComments = bigPictureElement.querySelector('.social__comments');
 const socialCommentsFragment = document.createDocumentFragment();
 
 container.addEventListener('click', (evt) => {
-      const thumbnail = evt.target.closest('[data-thumbnail-id]');
-      if (!thumbnail) {
-        return;
-      }
-          const bigPhoto = photos.find(
-      (item) => item.id === +thumbnail.dataset.thumbnailId
+  const thumbnail = evt.target.closest('[data-thumbnail-id]');
+  if (!thumbnail) {
+    return;
+  }
+  const bigPhoto = photos.find(
+    (item) => item.id === +thumbnail.dataset.thumbnailId
 
-    );
-    showBigPicture(bigPhoto);
+  );
+  showBigPicture(bigPhoto);
 
 });
 
@@ -40,10 +40,9 @@ const onPopupEscKeydown = (evt) => {
   }
 };
 
-function closeUserModal () {
+function closeUserModal() {
   bigPictureElement.classList.add('hidden');
   body.classList.remove('modal-open');
-
   container.removeEventListener('keydown', onPopupEscKeydown);
 };
 
@@ -53,8 +52,9 @@ bigPictureElementClose.addEventListener('click', () => {
 
 document.addEventListener('keydown', (evt) => {
   if (isEscapeKey(evt)) {
-  closeUserModal();
-}
+    evt.preventDefault();
+    closeUserModal();
+  }
 });
 
 const bigPictureValue = ({ url, likes, description, comments }) => {
@@ -65,15 +65,15 @@ const bigPictureValue = ({ url, likes, description, comments }) => {
 };
 
 
-const bigPictureValueComments = (data) =>  {
+const bigPictureValueComments = (data) => {
   data.forEach(({ avatar, name, message }) => {
-  const listComments = socialComment.cloneNode(true);
+    const listComments = socialComment.cloneNode(true);
 
-  listComments.querySelector('.social__picture').src = avatar;
-  listComments.querySelector('.social__picture').alt = name;
-  listComments.querySelector('.social__text').textContent = message;
+    listComments.querySelector('.social__picture').src = avatar;
+    listComments.querySelector('.social__picture').alt = name;
+    listComments.querySelector('.social__text').textContent = message;
 
-  socialCommentsFragment.appendChild(listComments);
+    socialCommentsFragment.appendChild(listComments);
   });
 
   socialComments.innerHTML = '';
